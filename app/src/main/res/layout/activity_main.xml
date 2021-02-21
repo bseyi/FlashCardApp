@@ -13,6 +13,8 @@
         android:layout_height="200dp"
         android:textSize="40sp"
         android:gravity="center"
+        android:background="@drawable/card_background"
+        android:elevation="89dp"
         android:text="Who is the 44th President of the United States?"/>
 
     <TextView
@@ -22,6 +24,8 @@
         android:textSize="40sp"
         android:gravity="center"
        android:visibility="invisible"
+        android:background="@drawable/card_backgroun2"
+        android:elevation="89dp"
         android:text="Barrack Obama"/>
 
 </RelativeLayout>
