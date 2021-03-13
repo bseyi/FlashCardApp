@@ -6,7 +6,7 @@
 ## Lab 2
 
 ### App Description
-This lab allows users create their own flashcard.
+This app allows users create their own flashcard.
 
 ### App Walk-though
 
