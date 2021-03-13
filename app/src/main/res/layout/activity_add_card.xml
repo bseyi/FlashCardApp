@@ -7,41 +7,39 @@
     tools:context=".AddCardActivity">
 
     <ImageView
-    android:id="@+id/cancel_button"
-    android:layout_width="wrap_content"
-    android:layout_height="200dp"
-    android:scaleType="fitEnd"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentRight="true"
-
-    android:src="@drawable/ic_iconmonstr_x_mark_circle_thin" />
+        android:id="@+id/my_cancle_Btn"
+        android:src="@drawable/ic_iconmonstr_x_mark_circle_thin"
+        android:layout_width="match_parent"
+        android:layout_marginTop="650dp"
+        android:layout_marginLeft="300dp"
+        android:layout_height="50dp"
+        />
 
     <EditText
-        android:id="@+id/enterTextField"
+        android:id="@+id/editQuestionField"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="20dp"
-        android:inputType="textMultiLine"
-        android:hint="Enter question here!" />
+        android:hint="Enter Question Here!"
+        android:inputType="textMultiLine" />
 
     <EditText
-        android:id="@+id/answerTextField"
+        android:id="@+id/editAnswerField"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:inputType="textMultiLine"
-        android:layout_below="@id/enterTextField"
+        android:layout_below="@id/editQuestionField"
         android:layout_margin="20dp"
-        android:hint="Enter answer here!" />
+        android:hint="Enter answer here!"
+        android:inputType="textMultiLine" />
 
     <ImageView
-        android:id="@+id/save_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:scaleType="fitEnd"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="false"
-
-        android:src="@drawable/save_icon" />
+        android:id="@+id/my_save_icon"
+        android:src="@drawable/save_icon"
+        android:layout_width="match_parent"
+        android:layout_marginTop="650dp"
+        android:layout_marginRight="300dp"
+        android:layout_height="50dp"
+        />
 
 
 </RelativeLayout>
