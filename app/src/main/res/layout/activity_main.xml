@@ -27,7 +27,9 @@
         android:text="Barrack Obama"
         android:gravity="center"
         android:visibility="invisible"
-        android:background="@drawable/card_backgroun2" />
+        android:background="@drawable/card_backgroun2"
+
+        />
 
 
     <ImageView
@@ -36,7 +38,16 @@
         android:layout_width="match_parent"
         android:layout_marginTop="650dp"
         android:layout_marginLeft="300dp"
+        android:layout_height="50dp" />
+
+    <ImageView
+        android:id="@+id/next"
+        android:src="@drawable/ic_iconmonstr_arrow_28"
+        android:layout_width="match_parent"
+        android:layout_marginTop="380dp"
+        android:layout_marginLeft="300dp"
         android:layout_height="50dp"
+
 
         />
 
