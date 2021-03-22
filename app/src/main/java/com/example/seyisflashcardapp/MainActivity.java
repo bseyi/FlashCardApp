@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         TextView answerTextView = findViewById(R.id.flashcard_answer);
         ImageView addCard = findViewById(R.id.myBtn);
         ImageView next = findViewById(R.id.next);
+        ImageView DeleteButton = findViewById(R.id.delete);
+
 
         questionTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
-                MainActivity.this.startActivityForResult(intent ,100);
+                MainActivity.this.startActivityForResult(intent, 100);
             }
         });
 
@@ -63,31 +65,48 @@ public class MainActivity extends AppCompatActivity {
                 currentCardDisplayedIndex++;
 
                 // make sure we don't get an IndexOutOfBoundsError if we are viewing the last indexed card in our list
-                if(currentCardDisplayedIndex >= allFlashcards.size()) {
+                if (currentCardDisplayedIndex >= allFlashcards.size()) {
                     Toast.makeText(getApplicationContext(), "You've reached the end of the cards, going back to start.", Toast.LENGTH_SHORT).show();
+                    currentCardDisplayedIndex = 0;
                 }
-
                 // set the question and answer TextViews with data from the database
                 allFlashcards = flashcardDatabase.getAllCards();
                 Flashcard flashcard = allFlashcards.get(currentCardDisplayedIndex);
 
-                ((TextView) findViewById(R.id.flashcard_question)).setText(flashcard.getAnswer());
-                ((TextView) findViewById(R.id.flashcard_answer)).setText(flashcard.getQuestion());
+                ((TextView) findViewById(R.id.flashcard_question)).setText(flashcard.getQuestion());
+                ((TextView) findViewById(R.id.flashcard_answer)).setText(flashcard.getAnswer());
             }
-
         });
+
+
         flashcardDatabase = new FlashcardDatabase(getApplicationContext());
         allFlashcards = flashcardDatabase.getAllCards();
+
         if (allFlashcards != null && allFlashcards.size() > 0) {
             ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashcards.get(0).getQuestion());
             ((TextView) findViewById(R.id.flashcard_answer)).setText(allFlashcards.get(0).getAnswer());
         }
-    }
+
+
+        //This statement sets an onClick listener for the delete button
+        DeleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flashcardDatabase.deleteCard(((TextView) findViewById(R.id.flashcard_question)).getText().toString());
+                ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashcards.get(currentCardDisplayedIndex - 1).getQuestion());
+                ((TextView) findViewById(R.id.flashcard_answer)).setText(allFlashcards.get(currentCardDisplayedIndex - 1).getQuestion());
+                allFlashcards = flashcardDatabase.getAllCards();
+            }
+        });
+
+        allFlashcards = flashcardDatabase.getAllCards();
+
+
+          }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode,resultCode,data);
         if (requestCode == 100 && resultCode==RESULT_OK) { // this 100 needs to match the 100 we used when we called startActivityForResult!
-            assert data != null;
             String string1 = data.getExtras().getString("string1"); // 'string1' needs to match the key we used when we put the string in the Intent
             String string2 = data.getExtras().getString("string2");
             TextView view = (TextView)findViewById(R.id.flashcard_question);
