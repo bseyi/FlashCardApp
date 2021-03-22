@@ -46,7 +46,16 @@
         android:layout_width="match_parent"
         android:layout_marginTop="380dp"
         android:layout_marginLeft="300dp"
+        android:layout_height="50dp"/>
+
+    <ImageView
+        android:id="@+id/delete"
+        android:src="@drawable/ic_iconmonstr_trash_can_30"
+        android:layout_width="match_parent"
+        android:layout_marginTop="480dp"
+        android:layout_marginLeft="300dp"
         android:layout_height="50dp"
+
 
 
         />
