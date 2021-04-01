@@ -44,6 +44,7 @@ public class AddCardActivity extends AppCompatActivity {
                     data.putExtra("string2", answer);   // puts another string into the Intent, with the key as 'string2
                     setResult(RESULT_OK,data);  // set result code and bundle data for response
                     finish();    // closes this activity and pass data to the original activity that launched this activity
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 }
             });
         }
