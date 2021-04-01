@@ -1,4 +1,4 @@
-
+# FlashCardApp
 ## Lab 4
 
 ### App Description
@@ -18,7 +18,7 @@ Flashcard app is spruced up with custom animations and styles!
 - [ ] User sees a countdown timer for each question
 - [ ] User sees a 'card flip' animation when the card is tapped
 - [x] User sees a celebration animation with confetti when they answer a question correctly
-# FlashCardApp
+
 
 
 ## Lab 3
